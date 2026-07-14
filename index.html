@@ -43,8 +43,13 @@
 
     <!-- start page-wrapper -->
     <div class="page-wrapper">
-        <!-- preloader hidden - keeps WOW.js initialization working -->
-        <div class="preloader" style="display:none;"></div>
+        <!-- preloader -->
+        <div class="preloader">
+            <div class="loader-circle"></div>
+            <div class="loader-line-mask">
+                <div class="loader-line"></div>
+            </div>
+        </div>
         <!-- Start header -->
         <header id="header">
             <div class="wpo-site-header wpo-header-style-2">
@@ -581,6 +586,19 @@
     <script src="assets/js/tilt.jquery.min.js"></script>
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script>
+    <script>
+        // Simple preloader: hide after page fully loads
+        window.addEventListener('load', function () {
+            var preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.transition = 'opacity 0.6s ease';
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 650);
+            }
+        });
+    </script>
 </body>
 
 
